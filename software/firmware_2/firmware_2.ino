@@ -2,7 +2,7 @@ const int pingPin = 4;
 const int triggerPin = 5;
 const int leftWheel = 7;
 const int rightWheel = 8;
-const int proximity_threshold = 100;
+const int proximity_threshold = 150;
 
 void setup() {
   // initialize serial communication:
