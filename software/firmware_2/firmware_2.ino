@@ -37,25 +37,31 @@ void loop()
   // if we get too close to something, take action
   if(cm < proximity_threshold){
     // stop
-    digitalWrite(leftWheel, LOW);
-    digitalWrite(rightWheel, LOW);
+    digitalWrite(leftWheel, HIGH);
+    digitalWrite(rightWheel, HIGH);
+
+   
     // fire
-    digitalWrite(triggerPin, HIGH);
+    //digitalWrite(triggerPin, LOW);
     // delay
     delay(1000);
     // stop firing
-    digitalWrite(triggerPin, LOW);
+    //digitalWrite(triggerPin, HIGH);
     // turn
-    digitalWrite(leftWheel, HIGH);
-    delay(1000);
-    digitalWrite(leftWheel, LOW);
-  }
+    //digitalWrite(leftWheel, LOW);
+    //delay(1000);
+    //digitalWrite(leftWheel, HIGH);
+
+  } else {
   
   // drive forward
-  digitalWrite(leftWheel, HIGH);
-  digitalWrite(rightWheel, HIGH);
+  digitalWrite(leftWheel, LOW);
+  digitalWrite(rightWheel, LOW);
   
   delay(100);
+ 
+ 
+ 
 }
 
 long microsecondsToCentimeters(long microseconds)
