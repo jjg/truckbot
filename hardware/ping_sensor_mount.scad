@@ -11,7 +11,17 @@ conn_width = 10.52;
 conn_pin_length = 5.41;
 
 // sensor bounding box (minus connector)
-cube([sensor_width, sensor_height, sensor_depth]);
+//cube([sensor_width, sensor_height, sensor_depth]);
 
-// barrels
-cylinder(r=barrel_diameter/2,h=barrel_height);
+difference(){
+	// mounting plate
+	cube([sensor_width + 2, sensor_height + 2, 2]);
+
+	// barrel holes
+	translate([barrel_edge+(barrel_diameter/2)+1,barrel_edge+(barrel_diameter/2)+1,-1]){
+		#cylinder(r=barrel_diameter/2+.1,h=barrel_height,$fn=50);
+	}
+	translate([barrel_edge + barrel_between + barrel_diameter + (barrel_diameter/2)+1,barrel_edge+(barrel_diameter/2)+1,-1]){
+		#cylinder(r=barrel_diameter/2+.1,h=barrel_height,$fn=50);
+	}
+}
